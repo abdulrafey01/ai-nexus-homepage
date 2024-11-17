@@ -2,7 +2,10 @@ import React from "react";
 import Picture from "../assets/hero-screenshot-2.png";
 export default function StepsSection() {
   return (
-    <div className="flex justify-between items-center  gap-8 flex-col lg:flex-row mt-24">
+    <div
+      data-aos="zoom-in-up"
+      className="flex justify-between items-center  gap-8 flex-col lg:flex-row mt-24"
+    >
       {/* Image container */}
       <div className="flex-1 p-8">
         <img src={Picture} alt="pc" className="w-[300px] sm:w-[600px] h-auto" />

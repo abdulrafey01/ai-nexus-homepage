@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../assets/logo.svg";
 export default function NavBar() {
   return (
-    <div className="sticky top-0 bg-white w-full shadow-md flex p-4 justify-between  items-center gap-16">
+    <div className="sticky z-10 top-0 bg-white w-full shadow-md flex p-4 justify-between  items-center gap-16">
       <div className="flex justify-center gap-4">
         <div className="flex justify-center items-center">
           <img src={Logo} alt="logo" className="w-10 h-10" />

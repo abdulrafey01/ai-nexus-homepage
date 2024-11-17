@@ -13,19 +13,23 @@ import FeatureImage6 from "./assets/social-media.png";
 import FeatureImage7 from "./assets/business-processes.png";
 import StepsSection from "./components/StepsSection";
 import GetStarted from "./components/GetStarted";
-
+import "aos/dist/aos.css";
+import Aos from "aos";
 export default function App() {
+  Aos.init();
   return (
     <div className=" min-h-screen flex justify-start items-center flex-col ">
       <div className="max-w-[1270px] flex flex-col">
         <NavBar />
         <MainSection />
         <FeatureSection />
-        <Feature
-          title={"Personalized Sales Messages"}
-          description={"Transform content creation instantly."}
-          image={FeatureImage1}
-        />
+        <div data-aos="fade-right" data-aos-duration="1000">
+          <Feature
+            title={"Personalized Sales Messages"}
+            description={"Transform content creation instantly."}
+            image={FeatureImage1}
+          />
+        </div>
         <Feature
           title={"Create images from any description at the drop of a hat."}
           description={

@@ -3,7 +3,11 @@ import Picture from "../assets/img1.svg";
 
 export default function MainSection() {
   return (
-    <div className="flex flex-col lg:flex-row p-2 sm:p-8 items-center mt-10">
+    <div
+      data-aos="fade-left"
+      data-aos-duration="1000"
+      className="flex flex-col lg:flex-row p-2 sm:p-8 items-center mt-10"
+    >
       {/* First Container */}
       <div className="max-lg:text-center lg:w-full flex-1 flex flex-col gap-8 max-sm:items-center">
         <p className="text-3xl w-auto sm:text-4xl xl:text-5xl  font-bold">
