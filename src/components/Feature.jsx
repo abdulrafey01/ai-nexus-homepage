@@ -2,7 +2,7 @@ import React from "react";
 import FeatureImage from "../assets/sales.jpg";
 export default function Feature({ title, description, image }) {
   return (
-    <div className=" flex-col-reverse lg:flex-row flex p-8 justify-center items-center">
+    <div className=" flex-col-reverse lg:flex-row flex p-8 justify-center items-center mt-24">
       {/* First containet */}
       <div className="flex-1 flex flex-col gap-4 max-lg:items-center">
         <p className="font-semibold tracking-wider text-[#6415ff] max-lg:text-center">

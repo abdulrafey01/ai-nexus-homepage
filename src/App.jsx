@@ -11,11 +11,13 @@ import FeatureImage4 from "./assets/transcription.png";
 import FeatureImage5 from "./assets/product.png";
 import FeatureImage6 from "./assets/social-media.png";
 import FeatureImage7 from "./assets/business-processes.png";
+import StepsSection from "./components/StepsSection";
+import GetStarted from "./components/GetStarted";
 
 export default function App() {
   return (
-    <div className=" min-h-screen flex justify-start items-center flex-col gap-8">
-      <div className="max-w-[1270px]">
+    <div className=" min-h-screen flex justify-start items-center flex-col ">
+      <div className="max-w-[1270px] flex flex-col">
         <NavBar />
         <MainSection />
         <FeatureSection />
@@ -66,6 +68,8 @@ export default function App() {
           }
           image={FeatureImage7}
         />
+        <StepsSection />
+        <GetStarted />
       </div>
     </div>
   );

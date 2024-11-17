@@ -6,7 +6,7 @@ import ReliableIcon from "../assets/reliable-icon.svg";
 import SimpleIcon from "../assets/simple-icon.svg";
 export default function FeatureSection() {
   return (
-    <div className="flex  p-4 flex-col justify-center items-center gap-4">
+    <div className="flex  p-4 flex-col justify-center items-center gap-4 mt-24">
       <p className="font-semibold tracking-wider text-[#6415ff] ">FEATURES</p>
       <p className="text-4xl sm:text-5xl w-[300px] sm:w-auto text-center text-[#243E63] leading-normal  font-bold max-w-[900px]">
         AI Content Platform to{" "}
