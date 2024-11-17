@@ -7,7 +7,7 @@ export default function NavBar() {
         <div className="flex justify-center items-center">
           <img src={Logo} alt="logo" className="w-10 h-10" />
         </div>
-        <p className="text-xl sm:text-2xl  font-bold text-[#243E63] hover:text-[#6415ff] cursor-pointer">
+        <p className="text-xl sm:text-2xl max-sm:text-center  font-bold text-[#243E63] hover:text-[#6415ff] cursor-pointer">
           AI Nexus By Bar Group Solutions
         </p>
       </div>

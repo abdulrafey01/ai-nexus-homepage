@@ -19,7 +19,7 @@ export default function StepsSection() {
           Easy to <span className="text-[#6415ff]">Get Started</span>
         </p>
         {/* Step */}
-        <div className="flex justify-start items-start gap-4 max-lg:flex-col max-lg:items-center">
+        <div className="flex justify-start items-start gap-4 max-lg:flex-col max-lg:items-center max-sm:px-4">
           <p className="text-3xl text-gray-300 font-semibold">01</p>
           <div className="flex flex-col gap-2 max-lg:text-center">
             <p className="text-xl font-semibold text-[#243E63] ">Register</p>
@@ -31,7 +31,7 @@ export default function StepsSection() {
           </div>
         </div>
         {/* Step */}
-        <div className="flex justify-start items-start gap-4 max-lg:flex-col max-lg:items-center">
+        <div className="flex justify-start items-start gap-4 max-lg:flex-col max-lg:items-center max-sm:px-4">
           <p className="text-3xl text-gray-300 font-semibold">02</p>
           <div className="flex flex-col gap-2 max-lg:text-center">
             <p className="text-xl font-semibold text-[#243E63] ">Pick Tool</p>
@@ -41,7 +41,7 @@ export default function StepsSection() {
           </div>
         </div>
         {/* Step */}
-        <div className="flex justify-start items-start gap-4 max-lg:flex-col max-lg:items-center">
+        <div className="flex justify-start items-start gap-4 max-lg:flex-col max-lg:items-center max-sm:px-4">
           <p className="text-3xl text-gray-300 font-semibold">03</p>
           <div className="flex flex-col gap-2 max-lg:text-center">
             <p className="text-xl font-semibold text-[#243E63] ">Generate</p>
