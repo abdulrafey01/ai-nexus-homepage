@@ -15,11 +15,12 @@ import StepsSection from "./components/StepsSection";
 import GetStarted from "./components/GetStarted";
 import "aos/dist/aos.css";
 import Aos from "aos";
+import FaqSection from "./components/FaqSection";
 export default function App() {
   Aos.init();
   return (
     <div className=" min-h-screen flex justify-start items-center flex-col ">
-      <div className="max-w-[1270px] flex flex-col">
+      <div className="max-w-[1270px] flex flex-col overflow-hidden">
         <NavBar />
         <MainSection />
         <FeatureSection />
@@ -73,6 +74,7 @@ export default function App() {
           image={FeatureImage7}
         />
         <StepsSection />
+        <FaqSection />
         <GetStarted />
       </div>
     </div>

@@ -7,7 +7,7 @@ export default function GetStarted() {
       data-aos-duration="1000"
       className="flex justify-center items-center px-4 sm:px-8 mt-24 "
     >
-      <div className="rounded-lg bg-[#6415ff] flex-1 h-80 lg:h-60 flex flex-col lg:flex-row justify-center items-center max-lg:w-[80%] max-lg:gap-8">
+      <div className="rounded-lg px-8 bg-[#6415ff] flex-1 h-96 sm:h-80 lg:h-60 flex flex-col lg:flex-row justify-center items-center max-lg:w-[80%] max-lg:gap-8">
         <div className="lg:flex-1   flex justify-end items-center">
           <p className="text-2xl sm:text-3xl font-semibold text-white w-auto min-w-[80%] sm:w-[450px] max-lg:text-center ">
             Developers all over the world are happily using Treact.

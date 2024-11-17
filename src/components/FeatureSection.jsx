@@ -7,7 +7,7 @@ import SimpleIcon from "../assets/simple-icon.svg";
 export default function FeatureSection() {
   return (
     <div
-      data-aos="fade-right"
+      data-aos="fade-left"
       data-aos-duration="1000"
       className="flex  p-4 flex-col justify-center items-center gap-4 mt-24"
     >

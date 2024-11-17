@@ -4,7 +4,7 @@ import Picture from "../assets/img1.svg";
 export default function MainSection() {
   return (
     <div
-      data-aos="fade-left"
+      data-aos="fade-right"
       data-aos-duration="1000"
       className="flex flex-col lg:flex-row p-2 sm:p-8 items-center mt-10"
     >
