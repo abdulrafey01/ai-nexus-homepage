@@ -16,6 +16,7 @@ import GetStarted from "./components/GetStarted";
 import "aos/dist/aos.css";
 import Aos from "aos";
 import FaqSection from "./components/FaqSection";
+import PricingSection from "./components/PricingSection";
 export default function App() {
   Aos.init();
   return (
@@ -76,6 +77,7 @@ export default function App() {
         <StepsSection />
         <FaqSection />
         <GetStarted />
+        <PricingSection />
       </div>
     </div>
   );
