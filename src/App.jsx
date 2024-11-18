@@ -75,9 +75,9 @@ export default function App() {
           image={FeatureImage7}
         />
         <StepsSection />
+        <PricingSection />
         <FaqSection />
         <GetStarted />
-        <PricingSection />
       </div>
     </div>
   );

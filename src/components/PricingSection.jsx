@@ -4,7 +4,11 @@ import Plan from "./Plan";
 export default function PricingSection() {
   const [btnType, setBtnType] = React.useState(1);
   return (
-    <div className="mt-24 flex flex-col justify-center items-center gap-6">
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="1000"
+      className="mt-24 flex flex-col justify-center items-center gap-6"
+    >
       <p className="font-semibold tracking-wider text-[#6415ff]">PRICING</p>
       <p className="text-2xl md:text-5xl   sm:text-3xl font-bold text-[#243E63] text-wrap text-center">
         Reasonable & Flexible <span className="text-[#6415ff]">Plans.</span>
