@@ -1,5 +1,5 @@
 import React from "react";
-import DownArrow from "../assets/down-arrow-svgrepo-com.svg";
+import DownArrow from "../../assets/down-arrow-svgrepo-com.svg";
 export default function FaqSection() {
   const [active, setActive] = React.useState(-1);
 

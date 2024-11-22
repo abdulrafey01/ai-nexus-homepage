@@ -1,9 +1,9 @@
 import React from "react";
-import SheildIcon from "../assets/shield-icon.svg";
-import CustomizeIcon from "../assets/customize-icon.svg";
-import FastIcon from "../assets/fast-icon.svg";
-import ReliableIcon from "../assets/reliable-icon.svg";
-import SimpleIcon from "../assets/simple-icon.svg";
+import SheildIcon from "../../assets/shield-icon.svg";
+import CustomizeIcon from "../../assets/customize-icon.svg";
+import FastIcon from "../../assets/fast-icon.svg";
+import ReliableIcon from "../../assets/reliable-icon.svg";
+import SimpleIcon from "../../assets/simple-icon.svg";
 export default function FeatureSection() {
   return (
     <div

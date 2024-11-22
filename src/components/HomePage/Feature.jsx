@@ -1,5 +1,4 @@
 import React from "react";
-import FeatureImage from "../assets/sales.jpg";
 export default function Feature({ title, description, image }) {
   return (
     <div className=" flex-col-reverse lg:flex-row flex p-8 justify-center items-center mt-24">
