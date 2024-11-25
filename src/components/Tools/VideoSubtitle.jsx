@@ -9,6 +9,7 @@ import Spinner from "../Common/Spinner";
 export default function VideoSubtitle() {
   const [video, setVideo] = React.useState(false);
   const [videoUrl, setVideoUrl] = React.useState(null);
+  const [subtitledVideoUrl, setSubtitledVideoUrl] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const [vtt, setVtt] = React.useState(false);
 
@@ -33,11 +34,15 @@ export default function VideoSubtitle() {
         {
           headers: {
             "Content-Type": "multipart/form-data",
+            Accept: "video/mp4;charset=UTF-8",
           },
+          responseType: "blob", // Set the responseType to 'blob'
         }
       );
-      setVtt(formatVtt(response.data.vtt));
+      // setVtt(formatVtt(response.data.vtt));
+      console.log(response.data);
       setLoading(false);
+      setSubtitledVideoUrl(URL.createObjectURL(response.data));
     } catch (error) {
       console.error(error);
       alert(error);
@@ -89,24 +94,18 @@ export default function VideoSubtitle() {
     return URL.createObjectURL(blob);
   };
   return (
-    <div className="min-h-screen flex justify-center  items-center">
-      {video ? (
+    <div className="min-h-screen flex justify-center items-center">
+      {/* Check if subtitleVideoUrl is present */}
+      {subtitledVideoUrl ? (
+        <video controls width="50%" height="auto">
+          <source src={subtitledVideoUrl} type="video/mp4" />
+        </video>
+      ) : // Only show the second part if there's no subtitle video URL
+      video ? (
         <div className="flex flex-col justify-center items-center gap-4">
-          {vtt ? (
-            <video controls width="50%" height="auto">
-              <source src={videoUrl} type="video/mp4" />
-              <track
-                src={createVttBlobUrl(vtt)} // Dynamically generate VTT URL
-                kind="subtitles"
-                label="English"
-                default
-              />
-            </video>
-          ) : (
-            <video controls width="50%" height="auto">
-              <source src={videoUrl} type="video/mp4" />
-            </video>
-          )}
+          <video controls width="50%" height="auto">
+            <source src={videoUrl} type="video/mp4" />
+          </video>
           <button
             onClick={onSubmit}
             className="rounded-full bg-[#f56565] hover:bg-[#ec3b3b] transition-colors text-white p-4 font-semibold text-xl w-40 shadow-2xl flex justify-center items-center"

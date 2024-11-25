@@ -4,6 +4,7 @@ import Aos from "aos";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import VideoSubtitle from "./components/Tools/VideoSubtitle";
+import Test from "./components/Tools/Test";
 export default function App() {
   Aos.init();
   return (
