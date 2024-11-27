@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../assets/logo.svg";
+import Logo from "../../assets/logo.svg";
 export default function NavBar() {
   return (
     <div className="sticky z-10 top-0 bg-white w-full shadow-md flex p-4 justify-between  items-center gap-16">

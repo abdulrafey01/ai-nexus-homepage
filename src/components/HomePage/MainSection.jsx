@@ -1,5 +1,5 @@
 import React from "react";
-import Picture from "../assets/img1.svg";
+import Picture from "../../assets/img1.svg";
 
 export default function MainSection() {
   return (
