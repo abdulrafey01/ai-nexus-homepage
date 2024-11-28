@@ -1,5 +1,5 @@
 import React from "react";
-import Picture from "../assets/hero-screenshot-2.png";
+import Picture from "../../assets/hero-screenshot-2.png";
 export default function StepsSection() {
   return (
     <div
