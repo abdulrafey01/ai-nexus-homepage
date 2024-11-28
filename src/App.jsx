@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import VideoSubtitle from "./components/Tools/VideoSubtitle";
 import Test from "./components/Tools/Test";
 import AffiliateDashboard from "./pages/AffiliateDashboard";
+// import "./App.css";
 export default function App() {
   Aos.init();
   return (

@@ -74,9 +74,9 @@ export default function AffiliateDashboard() {
 
   return (
     <div className="flex justify-center items-start min-h-screen p-4 ">
-      <div className="w-full lg:text-base sm:text-sm text-xs border-2  rounded-md p-2 flex flex-col">
+      <div className="w-full lg:text-base sm:text-sm text-xs border-2  rounded-md p-2 flex flex-col overflow-auto">
         {/* Table Head */}
-        <div className="bg-black p-4 flex justify-between items-center select-none text-white">
+        <div className="bg-black p-4 flex justify-between items-center select-none text-white min-w-[30rem]">
           <div
             onClick={() => {
               handleSort(1, "email");
@@ -259,7 +259,7 @@ export default function AffiliateDashboard() {
             key={index}
             className={`${
               index % 2 === 0 ? "bg-gray-200" : "bg-white"
-            } p-4 flex justify-between items-center`}
+            } p-4 flex justify-between items-center  min-w-[30rem]`}
           >
             <p className="font-semibold lg:w-36 sm:w-20 w-10  break-words ">
               {item.email}
