@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
+import UpArrow from "../assets/up-arrow-white.svg";
+import DownArrow from "../assets/down-arrow-white.svg";
 
 export default function AffiliateDashboard() {
   const [affiliateData, setAffiliateData] = React.useState([]);
@@ -58,9 +60,12 @@ export default function AffiliateDashboard() {
       <div className="w-full lg:text-base sm:text-sm text-xs border-2 bbg-gray-200 rounded-md p-2 flex flex-col">
         {/* Table Head */}
         <div className="bg-black p-4 flex justify-between items-center text-white">
-          <p className="font-semibold lg:w-36 sm:w-20 w-10  break-words">
-            User
-          </p>
+          <div>
+            <p className="font-semibold lg:w-36 sm:w-20 w-10  break-words">
+              User
+            </p>
+            {/* <img src={UpArrow} alt="" /> */}
+          </div>
           <p className="font-semibold lg:w-36 sm:w-20 w-10  break-words">
             Product
           </p>
