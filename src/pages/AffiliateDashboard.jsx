@@ -5,7 +5,10 @@ import DownArrow from "../assets/down-arrow-white.svg";
 
 export default function AffiliateDashboard() {
   const [affiliateData, setAffiliateData] = React.useState([]);
-
+  const [selectedColumn, setSelectedColumn] = React.useState({
+    index: 1,
+    order: "desc",
+  });
   useEffect(() => {
     const fetchAffiliateData = async () => {
       try {
@@ -23,7 +26,7 @@ export default function AffiliateDashboard() {
                 revenue: log.revenue,
                 type: log.type,
                 fee: log.fee,
-                date: log.date,
+                date: new Date(log.date).toLocaleDateString(),
               },
             ]);
           });
@@ -34,54 +37,221 @@ export default function AffiliateDashboard() {
     fetchAffiliateData();
   }, []);
 
-  useEffect(() => {
-    console.log(affiliateData);
-  }, [affiliateData]);
+  const handleSort = (index, field) => {
+    let newOrder;
+    if (index === selectedColumn.index) {
+      newOrder = selectedColumn.order === "asc" ? "desc" : "asc";
+    } else {
+      newOrder = "desc";
+    }
 
-  const calculateTotalRevenue = (data) => {
-    return data.reduce((total, item) => {
-      const revenue = parseFloat(item.revenue);
-      return total + revenue;
-    }, 0);
-  };
+    setSelectedColumn({ index, order: newOrder });
 
-  const calculateTotalSales = (data) => {
-    return data.reduce((total, item) => total + item.sales, 0);
-  };
-
-  const countDistinctProducts = (data) => {
-    const products = data.map((item) => item.product);
-    const distinctProducts = new Set(products);
-    return distinctProducts.size;
+    setAffiliateData((prevData) => {
+      const sortedData = [...prevData]; // Avoid mutating the original state
+      if (["sales", "fee", "revenue"].includes(field)) {
+        // Numeric fields
+        sortedData.sort((a, b) =>
+          newOrder === "asc" ? a[field] - b[field] : b[field] - a[field]
+        );
+      } else if (field === "date") {
+        sortedData.sort((a, b) =>
+          newOrder === "asc"
+            ? new Date(a[field]) - new Date(b[field])
+            : new Date(b[field]) - new Date(a[field])
+        );
+      } else {
+        // String fields
+        sortedData.sort((a, b) =>
+          newOrder === "asc"
+            ? b[field].localeCompare(a[field])
+            : a[field].localeCompare(b[field])
+        );
+      }
+      return sortedData;
+    });
   };
 
   return (
     <div className="flex justify-center items-start min-h-screen p-4 ">
-      <div className="w-full lg:text-base sm:text-sm text-xs border-2 bbg-gray-200 rounded-md p-2 flex flex-col">
+      <div className="w-full lg:text-base sm:text-sm text-xs border-2  rounded-md p-2 flex flex-col">
         {/* Table Head */}
-        <div className="bg-black p-4 flex justify-between items-center text-white">
-          <div>
-            <p className="font-semibold lg:w-36 sm:w-20 w-10  break-words">
-              User
-            </p>
-            {/* <img src={UpArrow} alt="" /> */}
+        <div className="bg-black p-4 flex justify-between items-center select-none text-white">
+          <div
+            onClick={() => {
+              handleSort(1, "email");
+            }}
+            className="flex flex-col sm:flex-row justify-start items-center font-semibold lg:w-36 sm:w-20 w-10 cursor-pointer gap-2 md:gap-4  break-words"
+          >
+            <p>User</p>
+            {
+              selectedColumn.index === 1 ? (
+                selectedColumn.order === "asc" ? (
+                  <img
+                    src={UpArrow}
+                    alt="Ascending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                ) : (
+                  <img
+                    src={DownArrow}
+                    alt="Descending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                )
+              ) : null // No arrow for inactive columns
+            }
           </div>
-          <p className="font-semibold lg:w-36 sm:w-20 w-10  break-words">
-            Product
-          </p>
-          <p className="font-semibold lg:w-36 sm:w-20 w-10  break-words">
-            Sales
-          </p>
-          <p className="font-semibold lg:w-36 sm:w-20 w-10  break-words">
-            Type
-          </p>
-          <p className="font-semibold lg:w-36 sm:w-20 w-10  break-words">Fee</p>
-          <p className="font-semibold lg:w-36 sm:w-20 w-10  break-words">
-            Revenue
-          </p>
-          <p className="font-semibold lg:w-36 sm:w-20 w-10  break-words">
-            Date
-          </p>
+          <div
+            onClick={() => {
+              handleSort(2, "product");
+            }}
+            className="flex flex-col sm:flex-row justify-start items-center font-semibold lg:w-36 sm:w-20 w-10 cursor-pointer gap-2 md:gap-4  break-words"
+          >
+            <p>Product</p>
+            {
+              selectedColumn.index === 2 ? (
+                selectedColumn.order === "asc" ? (
+                  <img
+                    src={UpArrow}
+                    alt="Ascending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                ) : (
+                  <img
+                    src={DownArrow}
+                    alt="Descending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                )
+              ) : null // No arrow for inactive columns
+            }
+          </div>
+          <div
+            onClick={() => {
+              handleSort(3, "sales");
+            }}
+            className="flex flex-col sm:flex-row justify-start items-center font-semibold lg:w-36 sm:w-20 w-10 cursor-pointer gap-2 md:gap-4  break-words"
+          >
+            <p>Sales</p>
+            {
+              selectedColumn.index === 3 ? (
+                selectedColumn.order === "asc" ? (
+                  <img
+                    src={UpArrow}
+                    alt="Ascending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                ) : (
+                  <img
+                    src={DownArrow}
+                    alt="Descending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                )
+              ) : null // No arrow for inactive columns
+            }
+          </div>
+          <div
+            onClick={() => {
+              handleSort(4, "type");
+            }}
+            className="flex flex-col sm:flex-row justify-start items-center font-semibold lg:w-36 sm:w-20 w-10 cursor-pointer gap-2 md:gap-4  break-words"
+          >
+            <p>Type</p>
+            {
+              selectedColumn.index === 4 ? (
+                selectedColumn.order === "asc" ? (
+                  <img
+                    src={UpArrow}
+                    alt="Ascending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                ) : (
+                  <img
+                    src={DownArrow}
+                    alt="Descending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                )
+              ) : null // No arrow for inactive columns
+            }
+          </div>
+          <div
+            onClick={() => {
+              handleSort(5, "fee");
+            }}
+            className="flex flex-col sm:flex-row justify-start items-center font-semibold lg:w-36 sm:w-20 w-10 cursor-pointer gap-2 md:gap-4  break-words"
+          >
+            <p>Fee</p>
+            {
+              selectedColumn.index === 5 ? (
+                selectedColumn.order === "asc" ? (
+                  <img
+                    src={UpArrow}
+                    alt="Ascending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                ) : (
+                  <img
+                    src={DownArrow}
+                    alt="Descending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                )
+              ) : null // No arrow for inactive columns
+            }
+          </div>
+          <div
+            onClick={() => {
+              handleSort(6, "revenue");
+            }}
+            className="flex flex-col sm:flex-row justify-start items-center font-semibold lg:w-36 sm:w-20 w-10 cursor-pointer gap-2 md:gap-4  break-words"
+          >
+            <p>Revenue</p>
+            {
+              selectedColumn.index === 6 ? (
+                selectedColumn.order === "asc" ? (
+                  <img
+                    src={UpArrow}
+                    alt="Ascending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                ) : (
+                  <img
+                    src={DownArrow}
+                    alt="Descending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                )
+              ) : null // No arrow for inactive columns
+            }
+          </div>
+          <div
+            onClick={() => {
+              handleSort(7, "date");
+            }}
+            className="flex flex-col sm:flex-row justify-start items-center font-semibold lg:w-36 sm:w-20 w-10 cursor-pointer gap-2 md:gap-4  break-words"
+          >
+            <p>Date</p>
+            {
+              selectedColumn.index === 7 ? (
+                selectedColumn.order === "asc" ? (
+                  <img
+                    src={UpArrow}
+                    alt="Ascending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                ) : (
+                  <img
+                    src={DownArrow}
+                    alt="Descending"
+                    className="w-2 h-2 lg:w-5 lg:h-5"
+                  />
+                )
+              ) : null // No arrow for inactive columns
+            }
+          </div>
         </div>
         {/* Table Body */}
         {affiliateData.map((item, index) => (
